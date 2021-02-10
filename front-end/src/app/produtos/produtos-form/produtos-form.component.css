@@ -1,0 +1,18 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+button {
+  margin: 20px 15px 0px 0px;
+  margin-top: 20px;
+  margin-right: 15px;
+}
+mat-card-content {
+  margin: 5 0 5 10px;
+}
+.form-area {
+  display: grid;
+  width: 750px;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}

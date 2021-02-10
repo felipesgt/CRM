@@ -1,0 +1,33 @@
+<mat-toolbar class="header">
+  <span class="header-title"><i class="material-icons">list</i></span>
+  <span class="header-title">CRM</span>
+</mat-toolbar>
+
+<div>
+<mat-sidenav-container>
+  <mat-sidenav  class="sidenav" mode="side" [opened]="mostrarMenu" fixedTopGap="75">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard">
+        <i class="material-icons">trending_up</i>
+        <span>Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/clientes">
+        <i class="material-icons">contacts</i>
+        <span>Clientes</span>
+      </a>
+      <a mat-list-item routerLink="/produtos">
+        <i class="material-icons">storefront</i>
+        <span>Produtos</span>
+      </a>
+      <a mat-list-item (click)="logout()">
+        <i class="material-icons">exit_to_app</i>
+        <span>Sair</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  
+  <mat-sidenav-content class="sidenav-content">
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>

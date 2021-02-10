@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+span {
+  padding-left: 10px;
+}
+th {
+  padding-right: 220px;
+}
+tr {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}

@@ -1,0 +1,43 @@
+.icon {
+  font-size: 50px;
+  margin-right: 20px;
+}
+
+.user-registration {
+  background-color: #d81b60;
+}
+
+.new-order {
+  background-color: #8e24aa;
+}
+
+.bounce-rate {
+  background-color: #fb8c00;
+}
+
+.membership {
+  background-color: #7cb342;
+}
+
+.subtitle {
+  font-size: 28px;
+  font-style: bold;
+  color: white;
+  padding-top: 5px;
+  margin-bottom: 0;
+}
+.dashboard-cards {
+    width: 100%;
+    margin: 0.5em;
+    display: block;
+}
+.chart-card {
+  width: 100%;
+  margin: 1.2em;
+
+}
+.chart-content {
+  margin: 2em;
+}
+
+

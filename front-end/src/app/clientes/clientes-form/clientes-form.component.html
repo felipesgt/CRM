@@ -1,0 +1,121 @@
+<mat-card >
+  <mat-card-title style="padding: 10px">Novo Cliente</mat-card-title>
+  <mat-card-content class="content" >
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="form">
+      <div class="info-area">
+        <mat-form-field class="field" appearance="outline" >
+          <input matInput placeholder="Nome" formControlName="nome"  name="nome"/>
+          <mat-error *ngIf="hasError('nome', 'required')">
+            {{message.nome.required}}
+          </mat-error>
+          <mat-error *ngIf="hasError('nome', 'minLength')">
+            {{message.nome.minlength}}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-error *ngIf="hasError('email', 'required')">
+            {{message.email.required}}
+          </mat-error>
+          <mat-error *ngIf="hasError('email', 'email')">
+            {{message.email.pattern}}
+          </mat-error>
+          <input matInput placeholder="Email" formControlName="email" name="email"/>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Telefone" formControlName="phone" name="phone"/>
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error *ngIf="hasError('phone', 'required')">
+            {{message.phone.required}}
+          </mat-error>
+          <mat-error *ngIf="hasError('phone', 'pattern')">
+            {{message.phone.pattern}}
+          </mat-error>
+       
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Data de Nascimento</mat-label>
+          <mat-error *ngIf="hasError('data', 'required')">
+            {{message.data.required}}
+          </mat-error>
+          <input matInput [matDatepicker]="picker" formControlName="data">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+        <mat-form-field appearance="outline">
+          <mat-error *ngIf="hasError('cpf', 'required')">
+            {{message.cpf.required}}
+          </mat-error>
+          <mat-error *ngIf="hasError('cpf', 'pattern')">
+            {{message.cpf.pattern}}
+          </mat-error>
+          <input matInput placeholder="CPF" formControlName="cpf" name="cpf"/>
+        </mat-form-field>
+
+        <div formGroupName="endereco" class="endereco">
+          <mat-form-field appearance="outline">
+            <mat-error *ngIf="hasError('endereco.cep', 'required')"
+            >{{message.cep.required}}
+          </mat-error>
+            <mat-error *ngIf="hasError('endereco.cep', 'required')">
+              {{message.cep.minlength}}
+            </mat-error>
+            <input matInput placeholder="CEP" formControlName="cep" name="cep" (blur)="consultCEP()"/>
+          </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-error *ngIf="hasError('endereco.numero', 'required')">
+            {{message.numero.required}} </mat-error>
+          <input matInput placeholder="Número" formControlName="numero" name="numero"/>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-error *ngIf="hasError('endereco.rua', 'required')">
+            {{message.rua.required}}
+          </mat-error>
+        
+          <input matInput placeholder="Rua" formControlName="rua" name="rua"/>
+        </mat-form-field >
+
+        <mat-form-field appearance="outline">
+          <mat-error *ngIf="hasError('endereco.bairro', 'required')">
+            {{message.bairro.required}}
+          </mat-error>
+       
+          <input matInput placeholder="Bairro" formControlName="bairro" name="bairro"/>
+        </mat-form-field >
+
+        <mat-form-field appearance="outline">
+          <mat-error *ngIf="hasError('endereco.cidade', 'required')">
+            {{message.cidade.required}}
+          </mat-error>
+          <mat-select formControlName="cidade" name="cidade" >
+            <mat-option  *ngFor="let cidade of cidades" [value]="cidade.nome">
+              {{cidade.nome}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-error *ngIf="hasError('endereco.estado', 'required')">
+            {{message.estado.required}}
+          </mat-error>
+          <mat-select formControlName="estado" name="estado" >
+            <mat-option  *ngFor="let estado of estados" [value]="estado.sigla" >
+              {{estado.nome}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+      <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid">
+        Salvar
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+

@@ -1,0 +1,59 @@
+<mat-card>
+  <mat-card-title>{{pageTitle}}</mat-card-title>
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="form">
+      <div class="form-area">
+        
+      <mat-form-field appearance="outline">
+        <mat-error *ngIf="hasError('nome', 'required')">
+          {{message.nome.required}}
+        </mat-error>
+        <mat-error *ngIf="hasError('nome', 'minlength')">
+          {{message.nome.minlength}}
+        </mat-error>
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" name="nome"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-error *ngIf="hasError('preco', 'required')">
+          {{message.preco.required}}
+        </mat-error>
+        <mat-error *ngIf="hasError('preco', 'pattern')">
+          {{message.preco.pattern}}
+        </mat-error>
+        <mat-label>Preço</mat-label>
+
+        <input matInput  formControlName="preco" name="preco"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+      <mat-error *ngIf="hasError('quantidade', 'required')">
+          {{message.quantidade.required}}
+        </mat-error>
+        <mat-error *ngIf="hasError('quantidade', 'pattern')">
+          {{message.quantidade.pattern}}
+        </mat-error>
+        <mat-label>Quantidade</mat-label>
+        <input matInput formControlName="quantidade" name="quantidade"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-error *ngIf="hasError('categoria', 'required')">
+          {{message.categoria.required}}
+        </mat-error>
+        <mat-label>Categoria</mat-label>
+          <select matNativeControl  formControlName="categoria" name="categoria">
+            <option value="Duravel" selected>Durável</option>
+            <option value="Não perecivel">Não perecível</option>
+            <option value="Não informado">Não informado</option>
+          </select>
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary" [disabled]="!form.valid">
+        Salvar
+       </button>
+    </div>
+
+    </form>
+</mat-card>
+
+
