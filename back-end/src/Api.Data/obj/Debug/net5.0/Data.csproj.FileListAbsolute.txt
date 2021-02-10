@@ -1,0 +1,5 @@
+C:\Users\felip\Desktop\Projetos\Nova pasta\back-end\src\Api.Data\bin\Debug\net5.0\Domain.dll
+C:\Users\felip\Desktop\Projetos\Nova pasta\back-end\src\Api.Data\obj\Debug\net5.0\Data.csprojAssemblyReference.cache
+C:\Users\felip\Desktop\Projetos\Nova pasta\back-end\src\Api.Data\obj\Debug\net5.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\felip\Desktop\Projetos\Nova pasta\back-end\src\Api.Data\obj\Debug\net5.0\Data.AssemblyInfoInputs.cache
+C:\Users\felip\Desktop\Projetos\Nova pasta\back-end\src\Api.Data\obj\Debug\net5.0\Data.AssemblyInfo.cs
