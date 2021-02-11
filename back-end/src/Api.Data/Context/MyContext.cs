@@ -1,7 +1,7 @@
-﻿using Api.Domain.Entities;
+﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Data.Context
+namespace Data.Context
 {
     public class MyContext : DbContext
     {

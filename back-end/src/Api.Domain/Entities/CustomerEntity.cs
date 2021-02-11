@@ -1,6 +1,4 @@
-﻿using Api.Domain.Entities;
-
-namespace Domain
+﻿namespace Domain.Entities
 {
     public class CustomerEntity : BaseEntity { 
             public string Name { get; set; }

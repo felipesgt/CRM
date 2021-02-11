@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Api.Domain.Entities;
+using Domain.Entities;
 
-namespace Api.Domain.Interfaces.Services.User
+namespace Domain.Interfaces.Services.User
 {
     public interface IUserService
     {
