@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from "ng2-charts";
 
 
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login/login.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { SharedModule } from './shared/shared.module';
 

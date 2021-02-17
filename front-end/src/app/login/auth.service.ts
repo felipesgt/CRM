@@ -1,25 +1,18 @@
 import { Router } from '@angular/router';
 import { Injectable, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { BaseService } from '../shared/base-service';
+import { Usuario } from './login/user-model';
+import { environment } from '../../environments/environment';
 
 
 @Injectable()
-export class AuthService {
-  usuarioAutenticado: boolean = false;
+export class AuthService extends BaseService<Usuario, Number> {
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
-  constructor(private router: Router) { }
-
-  fazerLogin(form: FormGroup){
-    if (form.value.email === 'usuario@email.com' &&
-      form.value.password === '123456') {
-      form.value.isAuthenticated = true;
-      this.mostrarMenuEmitter.emit(true);
-      localStorage.setItem("admin", JSON.stringify(form.value));
-      this.router.navigate(['/']);
-    } else {
-      this.usuarioAutenticado = false;
-      this.mostrarMenuEmitter.emit(false);
-    }
+  constructor(protected http: HttpClient) {
+    super(http, `${environment.api.baseUrl}/login`);
   }
+
 }

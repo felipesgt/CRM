@@ -170,5 +170,9 @@
       "quantidade": "2",
       "categoria": "Não perecivel"
     }
-  ]
+  ],
+  "login": {
+    "email": "felipe-ford@hotmail.com",
+    "password": "123456"
+  }
 }
