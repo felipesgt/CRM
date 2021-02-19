@@ -32,9 +32,9 @@ namespace Data.Repository
                 return true;
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -58,9 +58,9 @@ namespace Data.Repository
                 await _context.SaveChangesAsync();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
             return item;
@@ -72,9 +72,9 @@ namespace Data.Repository
             {
                 return await _dataset.SingleOrDefaultAsync(p => p.Id.Equals(id));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -84,9 +84,9 @@ namespace Data.Repository
             {
                 return await _dataset.ToListAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -107,9 +107,9 @@ namespace Data.Repository
                 await _context.SaveChangesAsync();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
             return item;

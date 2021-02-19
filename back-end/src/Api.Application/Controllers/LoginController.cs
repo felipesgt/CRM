@@ -1,10 +1,8 @@
 ﻿using Domain.Dtos;
-using Domain.Entities;
 using Domain.Interfaces.Services.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -18,6 +16,7 @@ namespace application.Controllers
     {
        
         // POST api/<LoginController>
+        [AllowAnonymous]
         [HttpPost]
         public async Task<object> Login([FromBody] LoginDto loginDto, [FromServices] ILoginService service)
         {
@@ -47,18 +46,6 @@ namespace application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
 
-        }
-
-        // PUT api/<LoginController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<LoginController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

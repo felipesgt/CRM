@@ -111,6 +111,54 @@
         "cidade": "Volta Redonda",
         "estado": "RJ"
       }
+    },
+    {
+      "id": 8,
+      "nome": "Tarso",
+      "email": "tarsocardoso@hotmail.com",
+      "cpf": "117.859.856-25",
+      "data": "2000-10-12T02:00:00.000Z",
+      "phone": "249813984445",
+      "endereco": {
+        "cep": "27350-720",
+        "numero": "10",
+        "rua": "Rua A",
+        "bairro": "Cantagalo",
+        "cidade": "Barra Mansa",
+        "estado": "RJ"
+      }
+    },
+    {
+      "id": 9,
+      "nome": "Tarso",
+      "email": "felipesgoncalvess@gmail.com",
+      "cpf": "119.797.367-23",
+      "data": "2000-10-12T02:00:00.000Z",
+      "phone": "498139844595",
+      "endereco": {
+        "cep": "27350-720",
+        "numero": "10",
+        "rua": "Rua A",
+        "bairro": "Cantagalo",
+        "cidade": "Barra Mansa",
+        "estado": "RJ"
+      }
+    },
+    {
+      "id": 10,
+      "nome": "Tarso",
+      "email": "felipesgoncalvess@gmail.com",
+      "cpf": "117.859.856-25",
+      "data": "2000-10-12T02:00:00.000Z",
+      "phone": "981398455554",
+      "endereco": {
+        "cep": "27350-720",
+        "numero": "10",
+        "rua": "Rua A",
+        "bairro": "Cantagalo",
+        "cidade": "Barra Mansa",
+        "estado": "RJ"
+      }
     }
   ],
   "produtos": [
