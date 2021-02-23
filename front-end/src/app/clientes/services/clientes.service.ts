@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ClientesService extends BaseService<Cliente, number>{
   constructor(protected http: HttpClient) {
-    super(http, `${environment.api.baseUrl}/clientes`);
+    super(http, `${environment.api.baseUrl}/customer`);
   }
 
 }

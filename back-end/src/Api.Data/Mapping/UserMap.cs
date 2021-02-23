@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Data.Mapping
 {
-    public class UserMap : IEntityTypeConfiguration<CustomerEntity>
+    public class UserMap : IEntityTypeConfiguration<UserEntity>
     {
-        public void Configure(EntityTypeBuilder<CustomerEntity> builder)
+        public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
             builder.ToTable("User");
 
@@ -15,7 +15,7 @@ namespace Data.Mapping
             builder.HasIndex(u => u.Email)
                    .IsUnique();
 
-            builder.Property(u => u.Name)
+            builder.Property(u => u.Password)
                    .IsRequired()
                    .HasMaxLength(60);
 

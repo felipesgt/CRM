@@ -17,7 +17,7 @@ namespace CrossCutting.DependencyInjection
 
 
             serviceCollection.AddDbContext<MyContext>(
-                options => options.UseMySql("Server=localhost;Port=3306;DataBase=dbAPI;Uid=root;Pwd=admin")
+                options => options.UseSqlServer("Server=.\\SQLEXPRESS2017;Initial Catalog=dbapi;MultipleActiveResultSets=true;User ID=sa;Password=eleison123")
             );
         }
     }

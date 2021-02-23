@@ -12,32 +12,32 @@ namespace Data.Mapping
 
             builder.HasKey(u => u.Id);
 
-            builder.HasIndex(u => u.Email)
+            builder.HasIndex(u => u.CPF)
                    .IsUnique();
 
-            builder.Property(u => u.Name)
+            builder.Property(u => u.Nome)
                    .IsRequired()
                    .HasMaxLength(60);
 
-            builder.Property(u => u.CPF)
-                .HasMaxLength(11);
-
-            builder.Property(u => u.Date)
+            builder.Property(u => u.Data)
                 .HasMaxLength(11);
 
             builder.Property(u => u.Phone)
                 .HasMaxLength(11);
 
-            builder.Property(u => u.ZipCode)
+            builder.Property(u => u.Cep)
                 .HasMaxLength(11);
 
-            builder.Property(u => u.State)
+            builder.Property(u => u.Estado)
                 .HasMaxLength(11);
 
-            builder.Property(u => u.City)
+            builder.Property(u => u.Cidade)
                 .HasMaxLength(11);
 
-            builder.Property(u => u.Neighborhood)
+            builder.Property(u => u.Rua)
+                 .HasMaxLength(11);
+
+            builder.Property(u => u.Bairro)
                 .HasMaxLength(11);
 
         }

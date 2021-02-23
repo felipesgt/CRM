@@ -13,9 +13,7 @@ export class LoginService {
 
   }
   login(usuario: Usuario): Observable<Usuario> {
-    let response = this.authService
-      .save(usuario);
-    this.mostrarMenuEmitter.emit(true);
+    let response = this.authService.save(usuario);
     return response;
   }
 }

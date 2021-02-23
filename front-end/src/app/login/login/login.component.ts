@@ -32,14 +32,27 @@ export class LoginComponent implements OnInit {
       this.usuario = Object.assign({}, this.usuario, this.form.value);
       this.loginService.login(this.usuario)
         .subscribe(
-          sucesso => { this.loginSucess(sucesso) },
+          response => {
+            if (response.authenticated === false) {
+              this.loginFailed(response);
+            }
+            else {
+              this.loginSucess(response);
+            }
+          }
+
         );
     }
 
   }
+  loginFailed(response: any) {
+    console.log(response);
+    this.loginService.mostrarMenuEmitter.emit(false);
+  }
   loginSucess(response: any) {
     console.log(response);
     this.form.value.isAuthenticated = true;
+    this.loginService.mostrarMenuEmitter.emit(true);
     localStorage.setItem("admin", JSON.stringify(response));
     this.router.navigate(['/']);
   }

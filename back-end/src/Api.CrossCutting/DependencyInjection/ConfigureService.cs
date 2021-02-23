@@ -1,6 +1,7 @@
 using Domain.Interfaces.Services.User;
 using Service.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Domain.Interfaces.Services;
 
 namespace CrossCutting.DependencyInjection
 {
@@ -10,6 +11,7 @@ namespace CrossCutting.DependencyInjection
         {
             serviceCollection.AddTransient<IUserService, UserService>();
             serviceCollection.AddTransient<ILoginService, LoginService>();
+            serviceCollection.AddTransient<ICostumerService, CustomerService>();
         }
     }
 }
