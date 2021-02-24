@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Dtos.User
 {
-    class UserDto
+    public class UserDto
     {
         [Required (ErrorMessage = "Campo Email é obrigatorio")]
         public string  Email;

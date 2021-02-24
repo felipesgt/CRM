@@ -35,9 +35,9 @@ namespace Service.Services
             return await _repository.InsertAsync(customer);
         }
 
-        public async Task<CustomerEntity> Put(CustomerEntity customer)
+        public async Task<CustomerEntity> Put(CustomerEntity customer, Guid id)
         {
-            return await _repository.UpdateAsync(customer);
+            return await _repository.UpdateAsync(customer, id);
         }
     }
 }

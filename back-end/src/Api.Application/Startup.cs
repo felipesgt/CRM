@@ -26,6 +26,7 @@ namespace application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Cors policy
             services.AddCors(options => {
                 options.AddPolicy("CorsPolicy", builder => builder
                 .SetIsOriginAllowed(origin => true)
@@ -33,12 +34,13 @@ namespace application
                 .AllowAnyHeader()
                 .AllowCredentials());
             });
-
+            // Dependencies Services
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureRepository.ConfigureDependenciesRepository(services);
+
+            //Token and Authentication Configs
             var signingConfigurations = new SigningConfigurations();
             services.AddSingleton(signingConfigurations);
-
             var tokenConfigurations = new TokenConfigurations();
             new ConfigureFromConfigurationOptions<TokenConfigurations>(
                 Configuration.GetSection("TokenConfigurations"))

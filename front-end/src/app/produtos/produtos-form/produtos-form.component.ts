@@ -18,65 +18,65 @@ export class ProdutosFormComponent extends BaseFormComponent implements OnInit, 
   private sub = new Subject<void>();
   pageTitle: string;
 
-    
+
   constructor(
     private produtosService: ProdutosService,
     private router: Router,
     private route: ActivatedRoute,
     protected snackBar: MatSnackBar,
-    private fb: FormBuilder
-    ) {
-      super(snackBar)
-    }
+    private fb: FormBuilder,
+  ) {
+    super(snackBar)
+  }
 
   ngOnInit(): void {
-    const produtos = this.route.snapshot.data['produto']    
+    const produtos = this.route.snapshot.data['produto']
     produtos.id === 0 ? this.pageTitle = "Novo Produto" :
       this.pageTitle = "Editar Produto"
 
     this.form = this.fb.group({
-      id: [produtos.id],
-      nome: [produtos.nome,[Validators.required,Validators.minLength(3)]],
-      preco: [produtos.preco,[Validators.required,Validators.pattern(/^[0-9]+$/)]],
-      quantidade: [produtos.quantidade, [ Validators.required,Validators.pattern(/^[0-9]+$/)]],
+      nome: [produtos.nome, [Validators.required, Validators.minLength(3)]],
+      preco: [produtos.preco, [Validators.required, Validators.pattern(/^[0-9]+$/)]],
+      quantidade: [produtos.quantidade, [Validators.required, Validators.pattern(/^[0-9]+$/)]],
       categoria: [produtos.categoria, Validators.required]
     })
   }
 
 
-onSubmit(): void {
-  this.formSaved = true;
-  if (this.form.dirty && this.form.valid) {
-    const produto = Object.assign({}, this.produto, this.form.value);
-    if (produto.id === 0) {
-      this.produtosService.save(produto)
-      .pipe(takeUntil(this.sub)).pipe(takeUntil(this.sub)).subscribe(() => {
-        this.openSnackBar("Produto criado com sucesso!", "Fechar")
-        this.router.navigate(['/produtos'])
-      },
-      (error) => {
-        this.openSnackBar("Houve um erro ao criar um novo produto", "Fechar")
-      })
-    }
-    else {
-      this.updateProduct(produto)
+  onSubmit(): void {
+    this.formSaved = true;
+    if (this.form.dirty && this.form.valid) {
+      const produto = Object.assign({}, this.produto, this.form.value);
+      if (this.route.snapshot.data['produto'].id === 0) {
+        this.produtosService.save(produto)
+          .pipe(takeUntil(this.sub)).pipe(takeUntil(this.sub)).subscribe(() => {
+            this.openSnackBar("Produto criado com sucesso!", "Fechar")
+            this.router.navigate(['/produtos'])
+          },
+            (error) => {
+              console.log(error)
+              this.openSnackBar("Houve um erro ao criar um novo produto", "Fechar")
+            })
+      }
+      else {
+        this.updateProduct(produto)
+      }
     }
   }
-}
 
-updateProduct(produto: Produtos)
-{
-  this.produtosService.update(produto, produto.id)
-  .pipe(takeUntil(this.sub)).pipe(takeUntil(this.sub)).subscribe(() => {
-    this.openSnackBar("Produto atualizado com sucesso!", "Fechar")
-    this.router.navigate(['/produtos'])
-  },
-  (error) => {
-    this.openSnackBar("Houve um erro ao atualizar um produto", "Fechar")
-  })
-}
+  updateProduct(produto: Produtos) {
+    this.produtosService.update(produto, this.route.snapshot.data['produto'].id)
+      .pipe(takeUntil(this.sub)).subscribe(() => {
+        this.openSnackBar("Produto atualizado com sucesso!", "Fechar")
+        this.router.navigate(['/produtos'])
+      },
+        (error) => {
+          console.log(error);
+          this.openSnackBar("Houve um erro ao atualizar um produto", "Fechar")
+        })
+  }
 
-ngOnDestroy(): void {
-  this.sub.next();
- }
+  ngOnDestroy(): void {
+    this.sub.next();
+  }
 }

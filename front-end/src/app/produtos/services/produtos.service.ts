@@ -7,9 +7,9 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ProdutosService extends BaseService<Produtos, number>{
+export class ProdutosService extends BaseService<Produtos, Number>{
   constructor(protected http: HttpClient) {
-    super(http, `${environment.api.baseUrl}/produtos`);
+    super(http, `${environment.api.baseUrl}/Product`);
   }
 
 }

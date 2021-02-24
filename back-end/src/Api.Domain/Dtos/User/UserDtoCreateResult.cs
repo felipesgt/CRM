@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Dtos.User
 {
-    class UserDtoCreateResult
+    public class UserDtoCreateResult
     {
         public Guid Id { get; set; }
         public string Email { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Threading.Tasks;
+using Domain.Dtos.User;
 using Domain.Entities;
 using Domain.Interfaces.Services.User;
 using Microsoft.AspNetCore.Authorization;
@@ -56,7 +57,7 @@ namespace application.Controllers
     }
 
         [HttpPost]
-    public async Task<ActionResult> Post([FromBody] UserEntity user)
+    public async Task<ActionResult> Post([FromBody] UserDto user)
     {
       if (!ModelState.IsValid)
       {
@@ -81,8 +82,8 @@ namespace application.Controllers
     }
         [Authorize("Bearer")]
 
-        [HttpPut]
-    public async Task<ActionResult> Put([FromBody] UserEntity user)
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(Guid id, [FromBody] UserDto user)
     {
       if (!ModelState.IsValid)
       {
@@ -90,7 +91,7 @@ namespace application.Controllers
       }
       try
       {
-        var result = await _service.Put(user);
+        var result = await _service.Put(user, id);
         if (result != null)
         {
           return Ok(result);

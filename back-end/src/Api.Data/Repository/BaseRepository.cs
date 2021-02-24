@@ -90,11 +90,12 @@ namespace Data.Repository
             }
         }
 
-        public async Task<T> UpdateAsync(T item)
+        public async Task<T> UpdateAsync(T item, Guid id)
         {
             try
             {
-                var result = await _dataset.SingleOrDefaultAsync(p => p.Id.Equals(item.Id));
+                item.Id = id;
+                var result = await _dataset.SingleOrDefaultAsync(p => p.Id.Equals(id));
                 if (result == null)
                 {
                     return null;
@@ -114,5 +115,7 @@ namespace Data.Repository
 
             return item;
         }
+
+      
     }
 }

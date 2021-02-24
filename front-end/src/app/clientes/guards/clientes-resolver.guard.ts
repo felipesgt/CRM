@@ -1,14 +1,14 @@
 import { ClientesService } from '../services/clientes.service';
 import { Cliente } from '../models/clientes.model';
 import { Injectable } from '@angular/core';
-import {  ActivatedRouteSnapshot, RouterStateSnapshot, Resolve } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Resolve } from '@angular/router';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteResolverGuard implements Resolve<Cliente> {
-  constructor(private service: ClientesService) {}
+  constructor(private service: ClientesService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Cliente> {
     if (route.params && route.params['id']) {

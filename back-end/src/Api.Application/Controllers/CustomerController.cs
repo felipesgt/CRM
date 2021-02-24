@@ -80,8 +80,8 @@ namespace application.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<ActionResult> Put([FromBody] CustomerEntity customer)
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(Guid id, [FromBody] CustomerEntity customer)
         {
             if (!ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace application.Controllers
             }
             try
             {
-                var result = await _service.Put(customer);
+                var result = await _service.Put(customer, id);
                 if (result != null)
                 {
                     return Ok(result);

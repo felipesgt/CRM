@@ -1,14 +1,14 @@
 import { ProdutosService } from '../services/produtos.service';
 import { Produtos } from '../models/produtos.model';
 import { Injectable } from '@angular/core';
-import {  ActivatedRouteSnapshot, RouterStateSnapshot, Resolve } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Resolve } from '@angular/router';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutosResolverGuard implements Resolve<Produtos> {
-  constructor(private service: ProdutosService) {}
+  constructor(private service: ProdutosService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Produtos> {
     if (route.params && route.params['id']) {

@@ -23,55 +23,55 @@ export class ProdutosListaComponent implements OnInit, OnDestroy {
   sub = new Subject<void>();
 
   constructor(
-     private router: Router,
-     private produtosService: ProdutosService,
-     public dialog: MatDialog,
-     public snackBar: MatSnackBar
-     ) { }
+    private router: Router,
+    private produtosService: ProdutosService,
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
     this.produtosService.read().
-    pipe(takeUntil(this.sub)).subscribe(
-      produtos => this.produtos = produtos,
-      error => this.openSnackBar("Erro ao ler Produtos", "Fechar")
-        )
-      }
-  
+      pipe(takeUntil(this.sub)).subscribe(
+        produtos => this.produtos = produtos,
+        error => this.openSnackBar("Erro ao ler Produtos", "Fechar")
+      )
+  }
+
 
   deletarProduto(id: number): void {
     const dialogRef = this.dialog.open(ConfirmDialog,
       { data: { title: 'Dialog', message: 'Deseja deletar esse item?' } });
-      dialogRef.disableClose = true;
-      dialogRef.afterClosed().
+    dialogRef.disableClose = true;
+    dialogRef.afterClosed().
       pipe(takeUntil(this.sub)).subscribe(result => {
-      if (result === "CONFIRMED") {
-        this.produtosService.delete(id).subscribe(() => {
-          this.refreshList();
-          this.openSnackBar("item deletado com sucesso!", "Fechar")
-         },
-         (error) => {
-          this.openSnackBar("Houve um erro ao deletar esse item!", "Fechar")
-         }
-         )
+        if (result === "CONFIRMED") {
+          this.produtosService.delete(id).subscribe(() => {
+            this.refreshList();
+            this.openSnackBar("item deletado com sucesso!", "Fechar")
+          },
+            (error) => {
+              this.openSnackBar("Houve um erro ao deletar esse item!", "Fechar")
+            }
+          )
         }
       })
-    }
+  }
 
-    openSnackBar(message: string, action: string) {
-      this.snackBar.open(message, action, {
-        duration: 3500,
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3500,
     });
   }
 
   refreshList() {
     this.produtosService.read().
-    pipe(takeUntil(this.sub)).subscribe(produtos => {
-      this.produtos = produtos
-    },
-    (error) => {
-      this.openSnackBar('Erro ao atualizar produtos', 'Fechar')
-    }
-    )  
+      pipe(takeUntil(this.sub)).subscribe(produtos => {
+        this.produtos = produtos
+      },
+        (error) => {
+          this.openSnackBar('Erro ao atualizar produtos', 'Fechar')
+        }
+      )
   }
 
   ngOnDestroy(): void {

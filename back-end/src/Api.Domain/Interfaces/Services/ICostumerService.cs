@@ -12,7 +12,7 @@ namespace Domain.Interfaces.Services
         Task<CustomerEntity> Get(Guid id);
         Task<IEnumerable<CustomerEntity>> GetAll();
         Task<CustomerEntity> Post(CustomerEntity customer);
-        Task<CustomerEntity> Put(CustomerEntity customer);
+        Task<CustomerEntity> Put(CustomerEntity customer, Guid id);
         Task<bool> Delete(Guid id);
     }
 }
