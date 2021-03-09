@@ -54,7 +54,6 @@ export class ProdutosFormComponent extends BaseFormComponent implements OnInit, 
             this.router.navigate(['/produtos'])
           },
             (error) => {
-              console.log(error)
               this.openSnackBar("Houve um erro ao criar um novo produto", "Fechar")
             })
       }

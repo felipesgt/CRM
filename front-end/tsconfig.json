@@ -17,6 +17,7 @@
     "strictNullChecks": false,
     "target": "es2015",
     "module": "es2020",
+    "rootDir": "./src",
     "lib": [
       "es2018",
       "dom"
