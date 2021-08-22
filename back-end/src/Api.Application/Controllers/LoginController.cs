@@ -16,6 +16,7 @@ namespace application.Controllers
     {
        
         // POST api/<LoginController>
+        
         [AllowAnonymous]
         [HttpPost]
         public async Task<object> Login([FromBody] LoginDto loginDto, [FromServices] ILoginService service)
@@ -35,10 +36,7 @@ namespace application.Controllers
                 {
                     return Ok(result);
                 }
-                else
-                {
-                    return NotFound();
-                }
+                return NotFound();
             }
             catch (ArgumentException e)
             {

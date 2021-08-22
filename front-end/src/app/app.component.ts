@@ -1,16 +1,16 @@
-import { Component, EventEmitter } from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './login/auth.service';
-import { LoginService } from './login/login.service';
+import { AuthService } from './pages/login/auth.service';
+import { LoginService } from './pages/login/login.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'crm';
-  mostrarMenu: boolean = false;
+  mostrarMenu = true;
 
   constructor(private loginService: LoginService) {
   }
@@ -23,14 +23,10 @@ export class AppComponent {
     );
   }
 
-
-
-  
-
   logout(): void {
-    if(localStorage.getItem('admin')) {      
+    if (localStorage.getItem('admin')) {
       localStorage.removeItem('admin');
-      window.location.reload()
+      window.location.reload();
     }
   }
 }

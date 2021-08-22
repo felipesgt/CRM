@@ -55,5 +55,5 @@ export const message = {
     required: 'Digite o campo quantidade',
     pattern: 'Formato inválido de quantidade'
   },
-  
+
 };
