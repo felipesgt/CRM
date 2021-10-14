@@ -1,5 +1,5 @@
-import { ClientesService } from '../services/clientes.service';
-import { Cliente } from '../models/clientes.model';
+import { LeadsService } from '../services/leads.service';
+import { Lead } from '../models/leads.model';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Resolve } from '@angular/router';
 import { Observable, of } from 'rxjs';
@@ -7,12 +7,12 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ClienteResolverGuard implements Resolve<Cliente> {
-  constructor(private service: ClientesService) { }
+export class LeadsResolverGuard implements Resolve<Lead> {
+  constructor(private service: LeadsService) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Cliente> {
-    if (route.params && route.params['id']) {
-      return this.service.readById(route.params['id']);
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Lead> {
+    if (route.params && route.params.id) {
+      return this.service.readById(route.params.id);
     }
     return of({
       id: 0,
